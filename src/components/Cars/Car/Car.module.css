@@ -1,0 +1,89 @@
+.Car {
+    width: 100%;
+
+}
+
+.Car img {
+    box-sizing: border-box;
+    float : left;
+    width : 220px;
+    height : 200px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border : 1px solid rgb(204, 204, 204);
+    background-size: cover;
+}
+
+.Properties {
+    padding : 20px;
+    box-sizing: border-box;
+    float : left;
+    height : 200px;
+    width: calc(100% - 420px);
+    background-color: white;
+    border : 1px solid rgb(204, 204, 204);
+}
+
+.Properties h4 {
+    text-align: center;
+}
+
+.Properties > p, h4 {
+    margin-top : 0;
+    margin-bottom: 20px;
+}
+
+.Properties > span {
+
+}
+
+.Properties .Element1, .Element2 {
+    width : 50%;
+}
+
+.Element1 {
+    float : left;
+}
+
+.Element2 {
+    float : right;
+}
+
+.Element2 p {
+    text-align: left;
+}
+
+.Function {
+    padding : 20px;
+    box-sizing: border-box;
+    border : 1px solid rgb(204, 204, 204);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    float: right;
+    height : 200px;
+    width : 200px;
+    background-color: white;
+
+}
+.Function a {
+    color : black;
+    font-size: 14px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    padding : 7px;
+    box-sizing: border-box;
+    text-decoration: none;
+    width : 140px;
+    height : 40px;
+    border: 1px solid rgb(56, 174, 230);
+    border-radius: 5px;
+}
+
+.Function a:hover {
+    cursor: pointer;
+    background-color: rgb(93, 184, 196);
+    font-weight: bold; 
+}
+

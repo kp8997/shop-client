@@ -1,0 +1,59 @@
+.Hidden {
+    opacity : 0;
+}
+
+.Login h3 {
+    color : white;
+}
+
+.Login {
+    opacity: 1;
+    transition : all ease-in-out ;
+    display: flex;
+    flex-direction: column;
+    outline: none !important;
+    height: 450px;
+    box-sizing: border-box;
+    padding: 30px;
+    justify-content: center;
+    flex-wrap: wrap; 
+    box-sizing: border-box;
+}
+
+.Login input[type="text"], .Login input[type="password"]{
+    width: 100%;
+    display: block;
+    margin: 6px auto;
+    padding: 11px;
+    border: 1px solid #b5b5b5;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+.Login button {
+    max-width: 150px;
+    width: 100%;
+    background: transparent;
+    color: #f9f9f9;
+    border: none;
+    margin: 5px auto;
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border : 1px solid #eee;
+    cursor:pointer;
+}
+
+.Login button:hover {
+    background-color: #eee;
+    color : #444444;
+}
+
+.Login a {
+    margin: 0 auto;
+    display : inline-block;
+    padding : 10px 0;
+    text-decoration: none;
+    color : #EFEFEF;
+}
+

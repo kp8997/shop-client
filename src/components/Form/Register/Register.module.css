@@ -1,0 +1,49 @@
+.Hidden {
+    opacity : 0;
+}
+
+.Register h3 {
+    color : white;
+}
+
+.Register {
+    opacity: 1;
+    transition : all ease-in-out ;
+    display: flex;
+    flex-direction: column;
+    outline: none !important;
+    height: 450px;
+    box-sizing: border-box;
+    padding: 30px;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+
+.Register input[type="text"], .Register input[type="password"]{
+    width: 100%;
+    display: block;
+    margin: 6px 0;
+    padding: 11px;
+    border: 1px solid #b5b5b5;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+.Register button {
+    max-width: 150px;
+    width: 100%;
+    background-color: transparent;
+    color: #f9f9f9;
+    border: none;
+    margin: 5px auto;
+    padding: 15px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor:pointer;
+    border : 1px solid #f9f9f9;
+}
+
+.Register button:hover {
+    background-color: #eee;
+    color : #444444;
+}

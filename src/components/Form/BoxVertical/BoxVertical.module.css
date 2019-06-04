@@ -1,0 +1,30 @@
+/* .LoginInfoBox {
+    width:30%;
+    padding:0 50px;
+    top:20%;
+    left:0;
+    position:absolute;
+    text-align:left;
+} */
+
+.BoxVertical {
+    top : 0;
+    left : 45%;
+    position: absolute;
+    height: 450px;
+    background-color: darkslategrey;
+    width: 30vw;
+    z-index: 4;
+    transition: left 1.3s;
+}
+
+.Trans {
+    top : 0;
+    left : 5%;
+    position: absolute;
+    height: 450px;
+    background-color: darkslategrey;
+    width: 30vw;
+    z-index: 4;
+    transition: left 1.3s;
+}

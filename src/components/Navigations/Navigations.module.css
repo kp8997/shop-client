@@ -1,0 +1,18 @@
+.Navigations {
+    box-sizing: border-box;
+    padding: 25px 0;
+    height: 100%;
+    float: right;
+    width: 60vw;
+}
+
+.Navigations a {
+    float: right;
+    font-size: 14px;
+    padding: 10px;
+    box-sizing: content-box;
+    border-left: 1px solid black;
+    text-decoration: none;
+    display: inline-block;
+    color : black;
+}

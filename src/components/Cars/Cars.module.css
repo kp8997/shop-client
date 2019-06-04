@@ -1,0 +1,15 @@
+.Cars {
+    width: 100%;
+    display: flex;
+    background-color : rgb(93, 184, 196);
+    flex-direction: column;
+    box-sizing: border-box;
+    padding : 0 30px;
+}
+.Cars h2 {
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    box-sizing: border-box;
+    padding : 20px 0;
+}
