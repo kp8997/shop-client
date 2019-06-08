@@ -1,0 +1,21 @@
+.MainDetail {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.MainDetail > h2 {
+    box-sizing: border-box;
+    padding : 30px;
+    height : 100px;
+    width: 100%;
+    text-align: center;
+    margin : 0 auto;
+}
+
+.MainDetail p {
+    margin: 0;
+}
+
+.Content {
+    background-color: rgb(40, 116, 202);
+}

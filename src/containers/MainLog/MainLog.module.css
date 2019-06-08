@@ -1,5 +1,10 @@
 .MainLog {
-    background-color: rgb(93, 184, 196);
+    /* background-color: rgb(40, 116, 202); */
     width: 80vw;
     margin: 0 auto;
+}
+
+.MainLog > h2 {
+    text-align: center;
+    margin : 20px auto;
 }

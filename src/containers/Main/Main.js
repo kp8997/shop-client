@@ -3,6 +3,8 @@ import axios from '../../axios';
 import classes from './Main.module.css';
 import Cars from "../../components/Cars/Cars";
 import Spinner from "../../components/Spinner/Spinner";
+import {connect} from 'react-redux';
+import * as actionCreator from '../../store/actionCreator';
 
 class Main extends Component {
     
@@ -16,8 +18,9 @@ class Main extends Component {
                 this.setState({cars : res.data});
             }).catch(err => {
                 console.log(err);
-
             });
+        } else {
+            console.log("Can not get cars' data");
         }
     }
 
@@ -37,4 +40,16 @@ class Main extends Component {
     }
 }
 
-export default Main;
+const mapStateToProps = state => {
+    return {
+        isAuth: state.isAuth
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onGetUser: () => dispatch(actionCreator.getUserServer()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

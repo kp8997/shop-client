@@ -1,0 +1,12 @@
+.User {
+    width: 50%;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    background-color: white;
+    height : 100px;
+    border: 1px solid black;
+}
+
+.User p {
+    margin : 5px;
+}

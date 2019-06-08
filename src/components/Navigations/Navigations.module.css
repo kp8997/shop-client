@@ -1,18 +1,25 @@
 .Navigations {
     box-sizing: border-box;
-    padding: 25px 0;
+    padding: 16px 0;
     height: 100%;
     float: right;
     width: 60vw;
 }
 
 .Navigations a {
+    font-weight: 500;
     float: right;
+    height: 48px;
+    box-sizing: border-box;
     font-size: 14px;
-    padding: 10px;
-    box-sizing: content-box;
+    padding: 14px;
     border-left: 1px solid black;
     text-decoration: none;
     display: inline-block;
     color : black;
+}
+
+.Navigations a:hover {
+    background-color: rgb(24, 127, 80);
+    cursor: pointer;
 }

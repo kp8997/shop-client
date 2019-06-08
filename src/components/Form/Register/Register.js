@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import classes from './Register.module.css';
 import axios from "../../../axios";
+import Popup from 'reactjs-popup';
+import {Redirect} from 'react-router-dom';
+import {connect} from "react-redux";
+import * as actionCreator from '../../../store/actionCreator';
 
 class Register extends Component {
 
@@ -22,31 +26,47 @@ class Register extends Component {
                 name : "name",
                 value : "",
             },
+            conf : {
+                name : "conf",
+                value : "",
+            }
+        },
+        isValidConfirm : false,
+        isSucess : false
+    }
+
+    checkPassword() {
+        if(this.state.formConfig.pass.value === this.state.formConfig.conf.value)
+        {
+            this.setState({isValidConfirm : true});
         }
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        // axios.post({
-        //     method: 'post',
-        //     url: '/user',
-        //     data: {
-        //         email : this.state.formConfig.email.value,
-        //         pass : this.state.formConfig.pass.value,
-        //         phone : this.state.formConfig.phone.value,
-        //         name : this.state.formConfig.name.value,
-        //     }   
-        // });
-        axios.post("/user", JSON.stringify({
-            email : this.state.formConfig.email.value,
-            pass : this.state.formConfig.pass.value,
-            phone : this.state.formConfig.phone.value,
-            name : this.state.formConfig.name.value,
-        })).then(res => {
-            console.log(res);
-        }).catch(err => {
-            console.log(err);
-        });
+        this.checkPassword();
+        if(this.state.isValidConfirm) {
+            window.localStorage.setItem('secret', "");
+            window.localStorage.setItem('idUser', "");
+            axios.post("/user/register", {
+                email : this.state.formConfig.email.value,
+                password : this.state.formConfig.pass.value,
+                phone : this.state.formConfig.phone.value,
+                name : this.state.formConfig.name.value,
+            }).then(res => {
+                console.log(res);
+                window.localStorage.setItem('secret', res.data.user.token);
+                window.localStorage.setItem('idUser', res.data.user.id);
+                this.props.onSetAuth();
+                this.props.onGetUser();
+                console.log(this.props.isAuth);
+                this.setState({isSucess : true});
+            }).catch(err => {
+                console.log(err);
+            });
+        } else {
+            console.log("IT NOT VALID PASSWOD and CONFIRM PASSWORD MUST BE THE SAME");
+        }        
     }
 
     inputHandler = (event, formConfigName) => {
@@ -57,16 +77,22 @@ class Register extends Component {
         this.setState({ formConfig : newFormConfig});
     }
     render () {
+        let redirect = (<form className={classes.Register}  encType="application/x-www-form-urlencoded" method="POST">
+        <h3>Sign Up</h3>
+        <input id="email" name="email" type="text" onChange={(event) => this.inputHandler(event, "email")} placeholder="Email"/>
+        <input id="pass" name="pass" type="password" onChange={(event) => this.inputHandler(event, "pass")} placeholder="Password"/>
+        <input id="confpass" name="conf" type="password" onChange={(event) => this.inputHandler(event, "conf")} placeholder="Confirm Password"/> 
+        <input id="phone" name="phone" type="text" onChange={(event) => this.inputHandler(event, "phone")} placeholder="Phone number"/>
+        <input id="name" name="name" type="text" onChange={(event) => this.inputHandler(event, "name")} placeholder="Name"/>
+        <button onClick={(event) => this.handleSubmit(event)}>Register</button>
+    </form>);
+        if (this.props.isAuth) {
+
+            redirect = <Redirect to={{pathname : "/detail"}}></Redirect>
+        }
+
         return (
-            <form className={classes.Register} onSubmit={(event) => this.handleSubmit(event)}>
-                <h3>Sign Up</h3>
-                <input id="email" name="email" type="text" onChange={(event) => this.inputHandler(event, "email")} placeholder="Email"/>
-                <input id="pass" name="pass" type="password" onChange={(event) => this.inputHandler(event, "pass")} placeholder="Password"/>
-                {/* <input id="confpass" name="confpass" type="password" placeholder="Confirm Password"/> */}
-                <input id="phone" name="phone" type="text" onChange={(event) => this.inputHandler(event, "phone")} placeholder="Phone number"/>
-                <input id="name" name="name" type="text" onChange={(event) => this.inputHandler(event, "name")} placeholder="Name"/>
-                <button>Register</button>
-            </form>
+            redirect
             // <div class={classes.RegisterShow}>
 
             // </div>
@@ -74,4 +100,18 @@ class Register extends Component {
     }
 }
 
-export default Register;
+
+const mapStateToProps = state => {
+    return {
+        isAuth : state.isAuth
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onSetAuth : () => dispatch(actionCreator.setAuthorizationTrue()),
+        onGetUser : () => dispatch(actionCreator.getUserServer()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

@@ -1,0 +1,24 @@
+.Users {
+    background-color : rgb(40, 116, 202);
+    width : 100%;
+    height : auto;
+    display: flex;
+    flex-flow: column;
+}
+
+.Users h2 {
+    width: 100%;
+    text-align: center;
+    height: 100px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding : 30px;
+}
+
+.WrapUsers {
+    width: 100%;
+    height : auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}

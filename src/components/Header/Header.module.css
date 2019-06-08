@@ -10,12 +10,13 @@
 }
 
 .Logo {
-    background-color: rgb(93, 184, 196);
+    /* background-color: rgb(93, 184, 196); */
+    /* background-color: rgb(69, 136, 212); */
     box-sizing: border-box;
     padding: 24px;
     font-weight: bold;
     font-size: 18px;
     float: left;
     height: 100%;
-    width: 100px;
+    width: 120px;
 }

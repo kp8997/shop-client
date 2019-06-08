@@ -1,0 +1,10 @@
+.MainUser {
+    margin : 0 auto;
+    width: 80vw;
+    height: auto;
+}
+
+.MainUser > h2 {
+    text-align: center;
+    margin : 20px auto;
+}
