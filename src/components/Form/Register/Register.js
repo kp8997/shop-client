@@ -32,7 +32,6 @@ class Register extends Component {
             }
         },
         isValidConfirm : false,
-        isSucess : false
     }
 
     checkPassword() {
@@ -44,8 +43,7 @@ class Register extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.checkPassword();
-        if(this.state.isValidConfirm) {
+        if(this.state.formConfig.pass.value === this.state.formConfig.conf.value) {
             window.localStorage.setItem('secret', "");
             window.localStorage.setItem('idUser', "");
             axios.post("/user/register", {
@@ -55,12 +53,11 @@ class Register extends Component {
                 name : this.state.formConfig.name.value,
             }).then(res => {
                 console.log(res);
-                window.localStorage.setItem('secret', res.data.user.token);
-                window.localStorage.setItem('idUser', res.data.user.id);
+                window.localStorage.setItem('secret', res.data.token);
+                window.localStorage.setItem('idUser', res.data.id);
                 this.props.onSetAuth();
                 this.props.onGetUser();
                 console.log(this.props.isAuth);
-                this.setState({isSucess : true});
             }).catch(err => {
                 console.log(err);
             });

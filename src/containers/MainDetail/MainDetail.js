@@ -2,22 +2,27 @@ import React, {Component} from 'react';
 import classes from './MainDetail.module.css';
 import {connect} from 'react-redux';
 import * as actionCreator from '../../store/actionCreator';
+import {Redirect} from 'react-router-dom';
 
 class MainDetail extends Component {
     render() {
-        return(
-            <div className={classes.MainDetail}>
-                <h2>Trang chi tiết người dùng</h2>
-                <div className={classes.Content}>
-                    <p>123</p>
+        let component = <Redirect to={{pathname : "/"}}/>          
+        if(this.props.isAuth) {
+            component =             
+                <div className={classes.MainDetail}>
+                    <h2>Trang chi tiết người dùng</h2>
+                    <div className={classes.Content}>
+                        <p>123</p>
+                    </div>
                 </div>
-            </div>
-        );
+        }
+        return component;
     };
 }
 
 const mapStateToProps = state => {
     return {
+        isAuth : state.isAuth,
         user: state.user
     }
 }
@@ -28,4 +33,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect()(MainDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(MainDetail);

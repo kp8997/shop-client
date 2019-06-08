@@ -9,16 +9,12 @@ import * as actionCreator from '../../store/actionCreator';
 import {Redirect} from 'react-router-dom'
 
 class MainLog extends Component { 
-
-
-
     render() {
-        // const localToken = window.localStorage.getItem("secret");
         let component = 
-        <div className={classes.MainLog}>
-            <h2>Đăng nhập - Đăng ký</h2>
-            <Form></Form>
-        </div>
+            <div className={classes.MainLog}>
+                <h2>Đăng nhập - Đăng ký</h2>
+                <Form></Form>
+            </div>
         if(this.props.isAuth) {
             component = <Redirect to={{pathname : "/"}}></Redirect>
         }

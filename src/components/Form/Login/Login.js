@@ -53,7 +53,7 @@ class Login extends Component {
             <input type="text" name="email" onChange={event => this.inputHandler(event, "email")} placeholder="Email"/>
             <input type="password" name="pass" onChange={event => this.inputHandler(event, "pass")} placeholder="Password"/>
             <button onClick={event => this.handleSubmit(event)}>Login</button>
-            <a href="#">Forget Password?</a>
+            <a href="/">Forget Password?</a>
         </form>);
         if (this.state.isAuth) {
             redirect = <Redirect to={{pathname : "/detail"}}></Redirect>

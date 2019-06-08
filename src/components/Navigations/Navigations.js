@@ -11,7 +11,7 @@ const navigations = props => {
     if (props.isAuth) {
             if (props.user) {
                 user = <NavLink to={ {pathname : "/detail"}}><BoxUser>Xin chào {props.user.name}</BoxUser></NavLink>
-                out = <a onClick={event => props.onLogoutUser(event)}>Đăng xuất</a>
+                out = <a href="/home" onClick={event => props.onLogoutUser(event)}>Đăng xuất</a>
             }
     }
     return (

@@ -17,7 +17,11 @@ const ins = axios.create({
 
 ins.interceptors.request.use((config ) =>  {
   // Do something before request is sent
-  config.headers.Authorization = 'Bearer ' + window.localStorage.getItem("secret");
+  const token = window.localStorage.getItem("secret");
+  if (token) {
+    config.headers.Authorization = 'Bearer ' + token;
+
+  }
   return config;
 }, function (error) {
   // Do something with request error
