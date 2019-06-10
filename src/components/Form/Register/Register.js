@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import classes from './Register.module.css';
 import axios from "../../../axios";
-import Popup from 'reactjs-popup';
 import {Redirect} from 'react-router-dom';
 import {connect} from "react-redux";
 import * as actionCreator from '../../../store/actionCreator';

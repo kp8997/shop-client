@@ -1,3 +1,8 @@
 export const SET_AUTH_TRUE = "SET_AUTH_TRUE";
 export const SET_AUTH_FALSE = "SET_AUTH_FALSE";
 export const SET_USER = "SET_USER";
+export const SET_CAR_PAGINATION = "GET_CAR_PAGINATION";
+export const SET_CAR_COUNT = "SET_CAR_COUNT";
+export const SET_INDEXPAGE_ADD = "SET_INDEXPAGE_ADD";
+export const SET_CAR_INIT = "SET_CAR_INIT";
+export const SET_CURRENT_COUNT = "SET_CURRENT_COUNT";

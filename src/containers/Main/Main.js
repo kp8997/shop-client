@@ -13,28 +13,44 @@ class Main extends Component {
     }
     
     componentDidMount() {
-        if (!this.state.cars) {
-            axios.get("/car").then(res => {
-                this.setState({cars : res.data});
-            }).catch(err => {
-                console.log(err);
-            });
-        } else {
-            console.log("Can not get cars' data");
+        // if (!this.state.cars) {
+        //     axios.get("/car").then(res => {
+        //         this.setState({cars : res.data});
+        //     }).catch(err => {
+        //         console.log(err);
+        //     });
+        // } else {
+        //     console.log("Can not get cars' data");
+        // }
+
+        if(!this.props.isCarInit) {
+            this.props.onGetCarPagination(this.props.indexPage);
         }
+    }
+
+
+    loadMoreHandle (event) {
+        event.preventDefault();
+        this.props.onGetCarPagination(this.props.indexPage);
     }
 
     render () {
         let cars = <Spinner></Spinner>;
-        if (this.state.cars != null)
+        let loadMore;
+        // console.log(this.props.cars);
+        if (this.props.cars != null)
         {
-            cars = <Cars cars={this.state.cars}></Cars>
-            console.log(this.state.cars.count);
+            cars = <Cars cars={this.props.cars} count={this.props.totalCount}></Cars>
+            if(!(this.props.currentCount === this.props.totalCount))
+            {
+                loadMore = <button className={classes.LoadMore} onClick={event => this.loadMoreHandle(event)}>Xem thêm xe ...</button>
+            }
         }
         return (
             <div className={classes.Main}>
                 <h2>Website bán xe cực kỳ uy tín</h2>
                 {cars}
+                {loadMore}
             </div>
         );
     }
@@ -42,13 +58,19 @@ class Main extends Component {
 
 const mapStateToProps = state => {
     return {
-        isAuth: state.isAuth
+        isAuth: state.isAuth,
+        cars : state.cars,
+        indexPage : state.indexPage,
+        totalCount : state.totalCount,
+        currentCount : state.currentCount,
+        isCarInit : state.isCarInit,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         onGetUser: () => dispatch(actionCreator.getUserServer()),
+        onGetCarPagination: (indexPage) => dispatch(actionCreator.getCarServerPagination(indexPage)),
     }
 }
 

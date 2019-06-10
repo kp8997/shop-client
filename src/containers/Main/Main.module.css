@@ -6,3 +6,21 @@
 .Main h2 {
     text-align: center;
 }
+
+.LoadMore {
+    width: 50%;
+    height: 60px;
+    margin: 30px auto;
+    box-sizing: border-box;
+    padding : 16px;
+    background-color: #0099BF;
+    display: block;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+
+.LoadMore:hover  {
+    cursor: pointer;
+    /* background-color: rgb(24, 127, 80); */
+    background-color : #3dc4d9;
+}

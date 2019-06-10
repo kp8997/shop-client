@@ -21,6 +21,61 @@ export const setUser = (user) => {
     }
 }
 
+export const setCarPagination = (cars) => {
+    return {
+        type : types.SET_CAR_PAGINATION,
+        payload : cars
+    };
+}
+
+export const setIndexPage = () => {
+    return {
+        type : types.SET_INDEXPAGE_ADD,
+    };
+}
+
+export const setCarCount = count => {
+    return {
+        type : types.SET_CAR_COUNT,
+        payload : count
+    };
+}
+
+export const setCurrentCount = (value) => {
+    return {
+        type : types.SET_CURRENT_COUNT,
+        payload : value
+    }
+}
+
+export const setCarInit = () => {
+    return {
+        type : types.SET_CAR_INIT
+    }
+}
+
+
+
+export const getCarServerPagination = (indexPage) => {
+    return dispatch => {
+        axios.get(`/car/${indexPage}`).then(res => {
+            const cars = res.data.cars;
+            const totalCount = res.data.count;
+            const currentCount = 2 * indexPage + cars.length;
+            console.log(`Current Count ${currentCount}`);
+            if(cars) {
+                dispatch(setCarInit());
+                dispatch(setCarPagination(cars));
+                dispatch(setIndexPage());
+                dispatch(setCarCount(totalCount));
+                dispatch(setCurrentCount(currentCount))
+            }
+        }).catch(err => {
+            console.log(err);
+        })
+    }
+}
+
 export const getUserServer = () => {
     return dispatch => {
         axios.get(`/user/${window.localStorage.getItem('idUser')}`).then(res => {
@@ -29,8 +84,6 @@ export const getUserServer = () => {
                 dispatch(setAuthorizationTrue());
                 dispatch(setUser(res.data.user));
             }
-            console.log ()
-
         }).catch(err => {
             console.log(err);
         });
