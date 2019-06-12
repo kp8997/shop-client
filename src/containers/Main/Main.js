@@ -8,10 +8,6 @@ import * as actionCreator from '../../store/actionCreator';
 
 class Main extends Component {
     
-    state = {
-        cars : null
-    }
-    
     componentDidMount() {
         // if (!this.state.cars) {
         //     axios.get("/car").then(res => {
@@ -38,7 +34,7 @@ class Main extends Component {
         let cars = <Spinner></Spinner>;
         let loadMore;
         // console.log(this.props.cars);
-        if (this.props.cars != null)
+        if (this.props.cars)
         {
             cars = <Cars cars={this.props.cars} count={this.props.totalCount}></Cars>
             if(!(this.props.currentCount === this.props.totalCount))

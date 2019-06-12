@@ -4,6 +4,11 @@ import axios from '../../../axios';
 import {Redirect} from 'react-router-dom';
 import {connect} from "react-redux";
 import * as actionCreator from '../../../store/actionCreator';
+import {  
+    ToastConsumer,
+    ToastProvider,
+    withToastManager,} from "react-toast-notifications";
+
 
 
 class Login extends Component {
@@ -29,6 +34,7 @@ class Login extends Component {
             email : this.state.formConfig.email.value,
             password : this.state.formConfig.pass.value,
         }).then(res => {
+            console.log(res.status);
             console.log(res);
             window.localStorage.setItem('secret', res.data.user.token);
             window.localStorage.setItem('idUser', res.data.user.id);

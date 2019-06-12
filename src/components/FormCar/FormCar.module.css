@@ -1,0 +1,78 @@
+.FormCar {
+    margin: 0 auto;
+    padding : 10px;
+}
+
+
+.FormCar input[type="text"] {
+    border : 1px solid #ccc;
+    width: 200px;
+    height: 25px;
+    padding: 10px;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.FormCar select[name="year"] {
+    border : 1px solid #ccc;
+    width: 222px;
+    height: 47px;
+    padding: 10px 6px;
+    display: inline-block;
+}
+
+.FormCar label.Label{
+    clear: both;
+    float : left;
+    height : 47px;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: right;
+    width: 150px;
+    font-weight: bold;
+}
+
+.FormCar input[type="file"] {
+    display: none;
+}
+
+.FormCar .Span {
+    font-weight: 600;
+    color : red;
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+.FormCar .FileName {
+    display: block;
+    margin-left : 150px;
+    font-style : italic;
+}
+
+.FormCar button {
+    border-radius : 5px;
+    border: 1px solid #ccc;
+    color : white;
+    font-weight : bold;
+    height : 40px;
+    width: 80px;
+    margin-left : 59px;
+    margin-right : 10px;
+    display: inline-block;
+    background-color: rgb(40, 116, 202);
+}
+
+.FormCar .Upload {
+    border-radius: 5px;
+    height: 47px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: white;
+}
+

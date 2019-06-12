@@ -23,8 +23,12 @@ class Car extends Component {
     
     render() {
         let image = <Spinner></Spinner>
+        let author = null;
         if(this.state.image) {
             image = <img src={this.state.image[0]} alt="car"></img>
+        }
+        if (this.props.car.author) {
+            author = <p>{this.props.car.author}</p>
         }
         return (
             <div className={classes.Car}>
@@ -44,6 +48,7 @@ class Car extends Component {
                 </div>
                 <div className={classes.Function}>
                     <a href="/">Người bán</a>
+                    {author}
                 </div>               
             </div>
         );

@@ -54,8 +54,6 @@ export const setCarInit = () => {
     }
 }
 
-
-
 export const getCarServerPagination = (indexPage) => {
     return dispatch => {
         axios.get(`/car/${indexPage}`).then(res => {
@@ -90,7 +88,7 @@ export const getUserServer = () => {
     }
 }
 
-export const logoutUserServer = (event) => {
+export const logoutUserServer = event => {
     event.preventDefault();
     return dispatch => {
         axios.delete("/user/logout").then(res => {
@@ -102,4 +100,8 @@ export const logoutUserServer = (event) => {
             console.log(err);
         });
     }
+}
+
+export const postCarSer = event => {
+    event.preventDefault();
 }
