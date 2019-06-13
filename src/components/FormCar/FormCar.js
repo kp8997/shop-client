@@ -69,10 +69,10 @@ class FormCar extends Component {
         formData.append("images", this.state.formConfig.images.value);
         axios.post("/car", formData, config).then(res => {
             console.log(res);
-            alert("The Post is successfully uploaded");
-            window.reload();
+            alert("Đăng bài thành công");
         }).catch(err => {
             console.log(`Error ${err} in FORM Car`);
+            alert("Đăng bài không thành công");
         })
     }
 

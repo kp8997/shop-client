@@ -42,6 +42,7 @@ class Login extends Component {
             this.props.onGetUser();
         }).catch(err => {
             console.log(err);
+            alert("Đăng nhập không thành công");
         });    
     }
 

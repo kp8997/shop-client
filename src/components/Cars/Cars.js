@@ -4,10 +4,11 @@ import Car from "./Car/Car";
 import Spinner from '../Spinner/Spinner';
 
 const cars = props => {
+    let c = props.cars;
     let cars = <Spinner></Spinner>;
-    if (props.cars) {
+    if (c) {
         cars = props.cars.map(car => {
-            return <Car key={car.model} car={car}></Car>
+            return <Car key={car.id} car={car}></Car>
         });
     }
     return (

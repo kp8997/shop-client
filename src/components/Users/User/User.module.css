@@ -1,11 +1,9 @@
 .User {
     width: 50%;
-    border-collapse: collapse;
     box-sizing: border-box;
     background-color: white;
     height : 100px;
-    border-collapse: collapse;
-    box-shadow: 2px 2px 5px #ccc;
+    box-shadow: 2px 2px 5px #bbb;
 }
 
 .User p {

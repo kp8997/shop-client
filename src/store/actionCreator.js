@@ -64,9 +64,9 @@ export const getCarServerPagination = (indexPage) => {
             if(cars) {
                 dispatch(setCarInit());
                 dispatch(setCarPagination(cars));
-                dispatch(setIndexPage());
+                if (indexPage === 0) dispatch(setIndexPage());
                 dispatch(setCarCount(totalCount));
-                dispatch(setCurrentCount(currentCount))
+                dispatch(setCurrentCount(currentCount));
             }
         }).catch(err => {
             console.log(err);
@@ -100,8 +100,4 @@ export const logoutUserServer = event => {
             console.log(err);
         });
     }
-}
-
-export const postCarSer = event => {
-    event.preventDefault();
 }

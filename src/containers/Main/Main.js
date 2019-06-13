@@ -27,6 +27,7 @@ class Main extends Component {
 
     loadMoreHandle (event) {
         event.preventDefault();
+        this.props.onSetIndexPage();
         this.props.onGetCarPagination(this.props.indexPage);
     }
 
@@ -37,7 +38,7 @@ class Main extends Component {
         if (this.props.cars)
         {
             cars = <Cars cars={this.props.cars} count={this.props.totalCount}></Cars>
-            if(!(this.props.currentCount === this.props.totalCount))
+            if(this.props.currentCount < this.props.totalCount)
             {
                 loadMore = <button className={classes.LoadMore} onClick={event => this.loadMoreHandle(event)}>Xem thêm xe ...</button>
             }
@@ -67,6 +68,7 @@ const mapDispatchToProps = dispatch => {
     return {
         onGetUser: () => dispatch(actionCreator.getUserServer()),
         onGetCarPagination: (indexPage) => dispatch(actionCreator.getCarServerPagination(indexPage)),
+        onSetIndexPage : () => dispatch(actionCreator.setIndexPage()),
     }
 }
 

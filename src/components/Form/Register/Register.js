@@ -56,9 +56,11 @@ class Register extends Component {
                 window.localStorage.setItem('idUser', res.data.id);
                 this.props.onSetAuth();
                 this.props.onGetUser();
+                alert("Đăng ký thành công");
                 console.log(this.props.isAuth);
             }).catch(err => {
                 console.log(err);
+                alert("Đăng ký không thành công");
             });
         } else {
             console.log("IT NOT VALID PASSWOD and CONFIRM PASSWORD MUST BE THE SAME");
@@ -83,7 +85,6 @@ class Register extends Component {
         <button onClick={(event) => this.handleSubmit(event)}>Register</button>
     </form>);
         if (this.props.isAuth) {
-
             redirect = <Redirect to={{pathname : "/detail"}}></Redirect>
         }
 
